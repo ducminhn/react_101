@@ -9,7 +9,7 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
         query: {
@@ -23,9 +23,9 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "client.min.js"
   },
-  // plugins: debug ? [] : [
-  //   new webpack.optimize.DedupePlugin(),
-  //   new webpack.optimize.OccurenceOrderPlugin(),
-  //   new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  // ],
+  plugins: debug ? [] : [
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+  ],
 };
